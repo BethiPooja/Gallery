@@ -1,0 +1,35 @@
+.item img{
+    width: 200px; height: 400px;
+    border-radius: 2px;
+    filter:brightness(0.2);
+}
+.gallery {
+    display:flex;
+    justify-content: center;
+    height: 100vh;
+}
+.item {
+    display: flex ;
+    transform: perspective(1000px);
+    transform-style:preserve-3d;
+    gap:2px;
+}
+.item img:hover{
+    filter:brightness(1);
+    transform: translateZ(180px);
+}
+.item img:hover +img{
+    filter: brightness(0.2);
+    transform: translateZ(140px) rotateY(40deg);
+
+}
+.item img:hover +*{
+    filter: brightness(0.6);
+    transform: translateZ(140px) rotateY(40deg);
+
+}
+.item img:has(+ *:hover) {
+    filter: brightness(0);
+    transform: translateZ(140px) rotateY(-40deg);
+
+}
